@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Night Owl VPN Service — Premium & Secure</title>
+<meta name="description" content="Night Owl VPN Service — Fast, secure, and affordable VPN data packages in Sri Lanka. Dialog, Airtel, Mobitel, SLT, Hutch supported.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg-deep:#06060f;--bg-primary:#0a0a1a;--bg-secondary:#0f0f2a;--bg-card:rgba(15,15,45,0.6);
+  --gold:#d4af37;--gold-light:#f0c040;--gold-glow:rgba(212,175,55,0.3);
+  --blue:#0088ff;--blue-light:#00bbff;--blue-glow:rgba(0,136,255,0.25);
+  --cyan:#00ffcc;--cyan-glow:rgba(0,255,204,0.2);
+  --neon-purple:#a855f7;--neon-pink:#ec4899;
+  --orange:#f07020;--orange-glow:rgba(240,112,32,0.3);
+  --text-primary:#f0f0f5;--text-secondary:#a0a0b8;--text-muted:#606078;
+  --border:rgba(255,255,255,0.06);--border-gold:rgba(212,175,55,0.2);
+  --glass:rgba(255,255,255,0.03);--glass-border:rgba(255,255,255,0.08);
+  --radius:16px;--radius-sm:10px;--radius-xs:6px;
+  --shadow-gold:0 0 30px rgba(212,175,55,0.15);--shadow-blue:0 0 30px rgba(0,136,255,0.15);
+  --transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Inter',sans-serif;background:var(--bg-deep);color:var(--text-primary);
+  line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--gold);color:var(--bg-deep)}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg-deep)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 20px var(--gold-glow)}50%{box-shadow:0 0 40px var(--gold-glow),0 0 60px rgba(212,175,55,0.1)}}
+@keyframes gradient-shift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes fade-up{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+@keyframes rotate-slow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes particle-float{
+  0%{transform:translateY(0) translateX(0);opacity:0}
+  10%{opacity:1}90%{opacity:1}
+  100%{transform:translateY(-100vh) translateX(50px);opacity:0}
+}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes logo-glow-pulse{
+  0%,100%{filter:drop-shadow(0 0 15px rgba(212,175,55,0.25)) drop-shadow(0 0 30px rgba(0,136,255,0.15))}
+  50%{filter:drop-shadow(0 0 25px rgba(212,175,55,0.45)) drop-shadow(0 0 50px rgba(0,136,255,0.25))}
+}
+@keyframes hero-logo-enter{
+  from{opacity:0;transform:scale(0.8) translateY(30px)}
+  to{opacity:1;transform:scale(1) translateY(0)}
+}
+@keyframes pulse-ring{
+  0%{transform:scale(0.9);opacity:0.6}
+  50%{transform:scale(1.1);opacity:0}
+  100%{transform:scale(0.9);opacity:0}
+}
+
+.animate-on-scroll{opacity:0;transform:translateY(40px);transition:all 0.8s cubic-bezier(0.25,0.46,0.45,0.94)}
+.animate-on-scroll.visible{opacity:1;transform:translateY(0)}
+.animate-on-scroll.visible.delay-1{transition-delay:0.1s}
+.animate-on-scroll.visible.delay-2{transition-delay:0.2s}
+.animate-on-scroll.visible.delay-3{transition-delay:0.3s}
+.animate-on-scroll.visible.delay-4{transition-delay:0.4s}
+.animate-on-scroll.visible.delay-5{transition-delay:0.5s}
+
+.bg-grid{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(212,175,55,0.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(212,175,55,0.03) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+.bg-orbs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bg-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.4;animation:float 8s ease-in-out infinite}
+.bg-orb-1{width:400px;height:400px;background:rgba(212,175,55,0.08);top:-100px;left:-100px}
+.bg-orb-2{width:350px;height:350px;background:rgba(0,136,255,0.06);bottom:-80px;right:-80px;animation-delay:2s}
+.bg-orb-3{width:250px;height:250px;background:rgba(240,112,32,0.04);top:40%;left:60%;animation-delay:4s}
+.particles{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.particle{position:absolute;width:2px;height:2px;background:var(--gold);border-radius:50%;animation:particle-float linear infinite;opacity:0}
+
+/* ===== NAVBAR ===== */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 24px;transition:var(--transition)}
+.navbar.scrolled{background:rgba(6,6,15,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-gold);padding:12px 24px}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-img{
+  height:42px;width:auto;object-fit:contain;
+  filter:drop-shadow(0 0 8px rgba(212,175,55,0.3));
+  transition:var(--transition);
+}
+.nav-logo:hover .nav-logo-img{filter:drop-shadow(0 0 14px rgba(212,175,55,0.5))}
+.nav-brand{
+  font-family:'Orbitron',sans-serif;font-size:15px;font-weight:700;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold),#c49b2f);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;letter-spacing:1px;
+}
+.nav-links{display:flex;align-items:center;gap:8px}
+.nav-link{
+  color:var(--text-secondary);text-decoration:none;font-size:13px;font-weight:500;
+  padding:8px 16px;border-radius:var(--radius-xs);transition:var(--transition);
+  letter-spacing:0.5px;text-transform:uppercase;
+}
+.nav-link:hover{color:var(--gold);background:rgba(212,175,55,0.08)}
+.nav-cta{
+  background:linear-gradient(135deg,var(--gold),#c49b2f);color:var(--bg-deep);
+  font-weight:700;font-size:12px;padding:10px 20px;border-radius:var(--radius-xs);
+  text-decoration:none;text-transform:uppercase;letter-spacing:1px;
+  transition:var(--transition);border:none;cursor:pointer;font-family:'Inter',sans-serif;
+}
+.nav-cta:hover{box-shadow:var(--shadow-gold);transform:translateY(-1px)}
+.mobile-toggle{display:none;background:none;border:none;color:var(--gold);font-size:28px;cursor:pointer;padding:4px}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(6,6,15,0.95);backdrop-filter:blur(20px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:24px}
+.mobile-menu.active{display:flex}
+.mobile-menu .nav-link{font-size:18px;padding:12px 32px}
+.mobile-menu .mobile-logo{margin-bottom:20px}
+.mobile-menu .mobile-logo img{height:80px;width:auto;object-fit:contain;filter:drop-shadow(0 0 20px rgba(212,175,55,0.4))}
+.mobile-menu .close-btn{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--text-secondary);font-size:32px;cursor:pointer}
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;overflow:hidden}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(212,175,55,0.08);border:1px solid var(--border-gold);
+  padding:8px 20px;border-radius:50px;font-size:12px;font-weight:600;
+  color:var(--gold);text-transform:uppercase;letter-spacing:2px;
+  margin-bottom:32px;animation:fade-up 0.8s ease-out;
+}
+.hero-badge iconify-icon{font-size:14px}
+.hero-logo-wrap{
+  position:relative;display:inline-block;margin-bottom:8px;
+  animation:hero-logo-enter 1s cubic-bezier(0.34,1.56,0.64,1) 0.1s both;
+}
+.hero-logo-ring{
+  position:absolute;inset:-20px;border-radius:50%;
+  border:1px solid rgba(212,175,55,0.15);
+  animation:pulse-ring 3s ease-in-out infinite;
+}
+.hero-logo-ring:nth-child(2){inset:-35px;animation-delay:1s;border-color:rgba(0,136,255,0.1)}
+.hero-logo-ring:nth-child(3){inset:-50px;animation-delay:2s;border-color:rgba(240,112,32,0.08)}
+.hero-logo-img{
+  height:160px;width:auto;object-fit:contain;position:relative;z-index:1;
+  animation:logo-glow-pulse 3s ease-in-out infinite, float 5s ease-in-out infinite;
+}
+.hero h1{
+  font-family:'Orbitron',sans-serif;font-size:clamp(32px,7vw,72px);
+  font-weight:900;line-height:1.1;margin:20px 0;
+  animation:fade-up 0.8s ease-out 0.3s both;
+}
+.hero h1 .gradient-text{
+  background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--blue-light),var(--gold));
+  background-size:300% 300%;animation:gradient-shift 4s ease infinite;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-sub{
+  font-size:clamp(15px,2.5vw,19px);color:var(--text-secondary);
+  max-width:560px;margin:0 auto 40px;font-weight:300;line-height:1.8;
+  animation:fade-up 0.8s ease-out 0.4s both;
+}
+.hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fade-up 0.8s ease-out 0.5s both}
+.btn-primary{
+  background:linear-gradient(135deg,var(--gold),#c49b2f);color:var(--bg-deep);
+  font-family:'Inter',sans-serif;font-weight:700;font-size:14px;
+  padding:16px 36px;border-radius:var(--radius-sm);border:none;cursor:pointer;
+  text-transform:uppercase;letter-spacing:1.5px;transition:var(--transition);
+  position:relative;overflow:hidden;text-decoration:none;display:inline-block;
+}
+.btn-primary::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);
+  background-size:200% 100%;animation:shimmer 3s infinite;
+}
+.btn-primary:hover{box-shadow:var(--shadow-gold);transform:translateY(-2px);color:var(--bg-deep)}
+.btn-secondary{
+  background:transparent;color:var(--text-primary);
+  font-family:'Inter',sans-serif;font-weight:600;font-size:14px;
+  padding:16px 36px;border-radius:var(--radius-sm);cursor:pointer;
+  text-transform:uppercase;letter-spacing:1.5px;transition:var(--transition);
+  border:1px solid var(--glass-border);text-decoration:none;display:inline-block;
+}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold);background:rgba(212,175,55,0.05)}
+.hero-stats{display:flex;gap:48px;justify-content:center;margin-top:60px;animation:fade-up 0.8s ease-out 0.6s both}
+.hero-stat{text-align:center}
+.hero-stat-num{
+  font-family:'Orbitron',sans-serif;font-size:28px;font-weight:800;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-stat-label{font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+
+/* ===== SECTIONS ===== */
+section{position:relative;z-index:1;padding:100px 24px}
+.section-container{max-width:1200px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:60px}
+.section-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;
+  letter-spacing:3px;margin-bottom:16px;
+}
+.section-label::before,.section-label::after{content:'';width:30px;height:1px;background:var(--gold);opacity:0.4}
+.section-title{font-family:'Orbitron',sans-serif;font-size:clamp(26px,4vw,42px);font-weight:800;line-height:1.2;margin-bottom:16px}
+.section-desc{font-size:16px;color:var(--text-secondary);max-width:560px;margin:0 auto;font-weight:300}
+.section-divider{width:60px;height:3px;margin:20px auto 0;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--blue))}
+
+/* ===== ABOUT ===== */
+.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.about-card{
+  background:var(--bg-card);border:1px solid var(--glass-border);
+  border-radius:var(--radius);padding:36px 28px;transition:var(--transition);
+  position:relative;overflow:hidden;
+}
+.about-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:var(--transition)}
+.about-card:hover{border-color:var(--border-gold);transform:translateY(-4px);box-shadow:var(--shadow-gold)}
+.about-card:hover::before{opacity:1}
+.about-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:24px}
+.about-icon.gold{background:rgba(212,175,55,0.1);color:var(--gold)}
+.about-icon.blue{background:rgba(0,136,255,0.1);color:var(--blue-light)}
+.about-icon.cyan{background:rgba(0,255,204,0.1);color:var(--cyan)}
+.about-card h3{font-size:18px;font-weight:700;margin-bottom:10px}
+.about-card p{font-size:14px;color:var(--text-secondary);line-height:1.7}
+
+/* ===== PACKAGES ===== */
+.packages-section{background:var(--bg-primary)}
+.packages-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.package-card{
+  background:var(--bg-card);border:1px solid var(--glass-border);
+  border-radius:var(--radius);padding:32px 24px;text-align:center;
+  transition:var(--transition);position:relative;overflow:hidden;cursor:pointer;
+}
+.package-card::after{content:'';position:absolute;inset:0;border-radius:var(--radius);background:linear-gradient(135deg,rgba(212,175,55,0.05),transparent);opacity:0;transition:var(--transition)}
+.package-card:hover{border-color:var(--border-gold);transform:translateY(-6px);box-shadow:var(--shadow-gold)}
+.package-card:hover::after{opacity:1}
+.package-card.popular{border-color:var(--gold);background:rgba(212,175,55,0.05)}
+.package-card.popular::before{
+  content:'POPULAR';position:absolute;top:14px;right:-30px;
+  background:linear-gradient(135deg,var(--gold),#c49b2f);color:var(--bg-deep);
+  font-size:9px;font-weight:800;padding:4px 40px;transform:rotate(45deg);letter-spacing:1px;
+}
+.package-card.selected{border-color:var(--gold);box-shadow:0 0 30px var(--gold-glow),inset 0 0 30px rgba(212,175,55,0.05)}
+.package-card.selected::after{opacity:1}
+.package-data{font-family:'Orbitron',sans-serif;font-size:32px;font-weight:800;margin-bottom:4px;position:relative;z-index:1}
+.package-card.popular .package-data{color:var(--gold-light)}
+.package-label{font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;position:relative;z-index:1}
+.package-price{font-family:'Orbitron',sans-serif;font-size:28px;font-weight:700;color:var(--gold);margin-bottom:4px;position:relative;z-index:1}
+.package-price span{font-size:14px;font-weight:500;color:var(--text-muted)}
+.package-period{font-size:12px;color:var(--text-muted);margin-bottom:24px;position:relative;z-index:1}
+.package-features{list-style:none;text-align:left;margin-bottom:28px;position:relative;z-index:1}
+.package-features li{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text-secondary);padding:6px 0}
+.package-features li iconify-icon{color:var(--cyan);font-size:16px;flex-shrink:0}
+.package-select-btn{
+  width:100%;padding:12px;border-radius:var(--radius-xs);font-family:'Inter',sans-serif;
+  font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1px;
+  cursor:pointer;transition:var(--transition);position:relative;z-index:1;
+  border:1px solid var(--border-gold);background:transparent;color:var(--gold);
+}
+.package-select-btn:hover{background:var(--gold);color:var(--bg-deep)}
+.package-card.selected .package-select-btn{background:var(--gold);color:var(--bg-deep)}
+
+/* ===== SUPPORTED ===== */
+.supported-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.supported-item{
+  display:flex;align-items:center;gap:12px;
+  background:var(--bg-card);border:1px solid var(--glass-border);
+  border-radius:var(--radius-sm);padding:16px 20px;transition:var(--transition);
+}
+.supported-item:hover{border-color:var(--border-gold);transform:translateX(4px)}
+.supported-item iconify-icon{color:var(--blue-light);font-size:20px;flex-shrink:0}
+.supported-item span{font-size:14px;font-weight:500;color:var(--text-secondary)}
+.supported-item:hover span{color:var(--text-primary)}
+
+/* ===== ORDER FORM ===== */
+.order-section{background:var(--bg-primary)}
+.form-wrapper{
+  max-width:700px;margin:0 auto;
+  background:var(--bg-card);border:1px solid var(--glass-border);
+  border-radius:var(--radius);padding:48px 40px;position:relative;overflow:hidden;
+}
+.form-wrapper::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--blue),var(--cyan))}
+.form-group{margin-bottom:24px}
+.form-label{display:block;font-size:12px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.form-input,.form-select,.form-textarea{
+  width:100%;padding:14px 18px;background:rgba(255,255,255,0.03);
+  border:1px solid var(--glass-border);border-radius:var(--radius-xs);
+  color:var(--text-primary);font-family:'Inter',sans-serif;font-size:14px;
+  transition:var(--transition);outline:none;
+}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-glow)}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--text-muted)}
+.form-select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%23a0a0b8' d='m12 15.4l-6-6L7.4 8l4.6 4.6L16.6 8L18 9.4z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.form-select option{background:var(--bg-secondary);color:var(--text-primary)}
+.form-textarea{resize:vertical;min-height:100px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+.payment-toggle{display:flex;gap:12px;margin-bottom:20px}
+.payment-option{
+  flex:1;padding:16px;border:1px solid var(--glass-border);border-radius:var(--radius-sm);
+  cursor:pointer;transition:var(--transition);text-align:center;background:rgba(255,255,255,0.02);
+}
+.payment-option:hover{border-color:var(--border-gold)}
+.payment-option.active{border-color:var(--gold);background:rgba(212,175,55,0.05)}
+.payment-option iconify-icon{font-size:28px;display:block;margin:0 auto 8px;color:var(--text-muted)}
+.payment-option.active iconify-icon{color:var(--gold)}
+.payment-option span{font-size:13px;font-weight:600;color:var(--text-secondary)}
+.payment-option.active span{color:var(--gold-light)}
+
+.payment-details{background:rgba(255,255,255,0.02);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;margin-bottom:24px;display:none}
+.payment-details.active{display:block}
+.payment-detail-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)}
+.payment-detail-row:last-child{border-bottom:none}
+.payment-detail-row .label{font-size:13px;color:var(--text-muted)}
+.payment-detail-row .value{font-size:14px;font-weight:600;color:var(--text-primary);font-family:'JetBrains Mono',monospace}
+.ezcash-note{
+  background:rgba(236,72,153,0.08);border:1px solid rgba(236,72,153,0.2);
+  border-radius:var(--radius-xs);padding:12px 16px;margin-top:12px;
+  font-size:13px;color:var(--neon-pink);display:flex;align-items:center;gap:8px;
+}
+
+.btn-submit{
+  width:100%;padding:16px;border:none;border-radius:var(--radius-sm);
+  background:linear-gradient(135deg,var(--gold),#c49b2f);color:var(--bg-deep);
+  font-family:'Inter',sans-serif;font-size:15px;font-weight:800;
+  text-transform:uppercase;letter-spacing:2px;cursor:pointer;
+  transition:var(--transition);position:relative;overflow:hidden;
+}
+.btn-submit::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);background-size:200% 100%;animation:shimmer 2.5s infinite}
+.btn-submit:hover{box-shadow:var(--shadow-gold);transform:translateY(-2px)}
+.btn-submit:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+
+.whatsapp-note{
+  background:rgba(37,211,102,0.06);border:1px solid rgba(37,211,102,0.2);
+  border-radius:var(--radius-sm);padding:16px 20px;margin-bottom:24px;
+  display:flex;align-items:flex-start;gap:12px;
+}
+.whatsapp-note iconify-icon{font-size:22px;color:#25d366;flex-shrink:0;margin-top:1px}
+.whatsapp-note p{font-size:13px;color:var(--text-secondary);line-height:1.7}
+.whatsapp-note p strong{color:#25d366}
+
+/* ===== WHATSAPP ===== */
+.whatsapp-float{
+  position:fixed;bottom:28px;right:28px;z-index:999;
+  width:60px;height:60px;border-radius:50%;background:#25d366;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:var(--transition);text-decoration:none;
+}
+.whatsapp-float:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(37,211,102,0.5)}
+.whatsapp-float iconify-icon{font-size:30px;color:#fff}
+.whatsapp-float::after{
+  content:'';position:absolute;inset:-4px;border-radius:50%;
+  border:2px solid rgba(37,211,102,0.4);animation:pulse-glow-wa 2s ease-in-out infinite;
+}
+@keyframes pulse-glow-wa{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.15);opacity:0}}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--bg-primary);border-top:1px solid var(--border);padding:60px 24px 30px;position:relative;z-index:1}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:16px;text-decoration:none}
+.footer-logo-img{height:44px;width:auto;object-fit:contain;filter:drop-shadow(0 0 8px rgba(212,175,55,0.3))}
+.footer-brand-name{font-family:'Orbitron',sans-serif;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:1px}
+.footer-desc{font-size:13px;color:var(--text-muted);line-height:1.8;max-width:280px}
+.footer-col h4{font-size:12px;font-weight:700;color:var(--text-secondary);text-transform:uppercase;letter-spacing:2px;margin-bottom:16px}
+.footer-col a{display:block;font-size:13px;color:var(--text-muted);text-decoration:none;padding:4px 0;transition:var(--transition)}
+.footer-col a:hover{color:var(--gold);transform:translateX(4px)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:12px;color:var(--text-muted)}
+.footer-bottom a{color:var(--gold);text-decoration:none}
+
+/* ===== TOAST ===== */
+.toast{
+  position:fixed;top:24px;right:24px;z-index:9999;
+  background:rgba(15,15,45,0.95);border:1px solid var(--border-gold);
+  border-radius:var(--radius-sm);padding:16px 24px;
+  backdrop-filter:blur(20px);transform:translateX(120%);
+  transition:transform 0.5s cubic-bezier(0.34,1.56,0.64,1);
+  max-width:400px;display:flex;align-items:flex-start;gap:12px;
+}
+.toast.show{transform:translateX(0)}
+.toast iconify-icon{font-size:22px;color:var(--cyan);flex-shrink:0;margin-top:2px}
+.toast-text{font-size:14px;color:var(--text-primary);line-height:1.5}
+.toast-text strong{color:var(--gold);display:block;margin-bottom:2px}
+
+/* ===== MODAL ===== */
+.modal-overlay{position:fixed;inset:0;z-index:9998;background:rgba(6,6,15,0.85);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:24px}
+.modal-overlay.active{display:flex}
+.modal{
+  background:var(--bg-secondary);border:1px solid var(--border-gold);
+  border-radius:var(--radius);padding:48px 40px;text-align:center;
+  max-width:480px;width:100%;position:relative;overflow:hidden;animation:fade-up 0.5s ease-out;
+}
+.modal::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--cyan),var(--gold))}
+.modal .modal-logo{height:80px;margin:0 auto 16px;display:block;filter:drop-shadow(0 0 20px rgba(212,175,55,0.4))}
+.modal iconify-icon.modal-icon{font-size:56px;color:var(--cyan);margin-bottom:16px}
+.modal h3{font-family:'Orbitron',sans-serif;font-size:22px;font-weight:700;margin-bottom:12px}
+.modal p{font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:24px}
+
+/* ===== ADMIN ===== */
+.admin-panel{display:none;padding-top:120px}
+.admin-panel.active{display:block}
+.admin-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;flex-wrap:wrap;gap:12px}
+.admin-header h2{font-family:'Orbitron',sans-serif;font-size:24px;font-weight:700}
+.admin-badge{background:rgba(236,72,153,0.1);border:1px solid rgba(236,72,153,0.3);padding:6px 14px;border-radius:50px;font-size:11px;font-weight:700;color:var(--neon-pink);text-transform:uppercase;letter-spacing:1px}
+.admin-orders{display:flex;flex-direction:column;gap:16px}
+.admin-order-card{background:var(--bg-card);border:1px solid var(--glass-border);border-radius:var(--radius);padding:24px;transition:var(--transition)}
+.admin-order-card:hover{border-color:var(--border-gold)}
+.admin-order-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;flex-wrap:wrap;gap:8px}
+.admin-order-id{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--blue-light)}
+.admin-order-status{padding:4px 12px;border-radius:50px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.admin-order-status.pending{background:rgba(236,72,153,0.1);color:var(--neon-pink);border:1px solid rgba(236,72,153,0.2)}
+.admin-order-status.completed{background:rgba(0,255,204,0.1);color:var(--cyan);border:1px solid rgba(0,255,204,0.2)}
+.admin-order-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.admin-order-field .aof-label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
+.admin-order-field .aof-value{font-size:14px;font-weight:500;color:var(--text-primary)}
+.admin-slip-preview{margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
+.admin-slip-preview img{max-width:200px;border-radius:var(--radius-xs);border:1px solid var(--glass-border)}
+.admin-order-actions{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.admin-btn{padding:8px 16px;border-radius:var(--radius-xs);font-size:12px;font-weight:600;cursor:pointer;transition:var(--transition);border:none;font-family:'Inter',sans-serif}
+.admin-btn.complete{background:rgba(0,255,204,0.1);color:var(--cyan);border:1px solid rgba(0,255,204,0.2)}
+.admin-btn.complete:hover{background:rgba(0,255,204,0.2)}
+.admin-btn.delete{background:rgba(236,72,153,0.1);color:var(--neon-pink);border:1px solid rgba(236,72,153,0.2)}
+.admin-btn.delete:hover{background:rgba(236,72,153,0.2)}
+.admin-empty{text-align:center;padding:60px 20px;color:var(--text-muted)}
+.admin-empty iconify-icon{font-size:48px;margin-bottom:16px;display:block;opacity:0.5}
+.admin-back{display:inline-flex;align-items:center;gap:8px;color:var(--text-secondary);text-decoration:none;font-size:14px;margin-bottom:24px;transition:var(--transition)}
+.admin-back:hover{color:var(--gold)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .packages-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:repeat(2,1fr)}
+  .howto-layout{grid-template-columns:1fr !important}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .mobile-toggle{display:block}
+  .packages-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .package-card{padding:24px 16px}
+  .package-data{font-size:26px}
+  .package-price{font-size:22px}
+  .about-grid{grid-template-columns:1fr}
+  .hero-stats{gap:24px}
+  .hero-stat-num{font-size:22px}
+  .form-row{grid-template-columns:1fr}
+  .form-wrapper{padding:32px 20px}
+  .footer-grid{grid-template-columns:1fr;gap:24px}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .admin-order-grid{grid-template-columns:1fr}
+  .payment-toggle{flex-direction:column}
+  .supported-grid{grid-template-columns:1fr}
+  section{padding:70px 16px}
+  .hero-logo-img{height:120px}
+  .howto-steps{flex-direction:column !important}
+}
+@media(max-width:480px){
+  .packages-grid{grid-template-columns:1fr}
+  .hero-buttons{flex-direction:column;align-items:center}
+  .btn-primary,.btn-secondary{width:100%;text-align:center}
+  .hero-stats{flex-direction:column;gap:16px}
+  .hero-logo-img{height:100px}
+  .nav-brand{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-orbs">
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <div class="bg-orb bg-orb-3"></div>
+</div>
+<div class="particles" id="particles"></div>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" onclick="showMain()">
+      <img src="https://z-cdn-media.chatglm.cn/files/670cb0b4-4e18-4aaf-9cd9-109ac5f6e4f2.png?auth_key=1877815077-acf07dc7b8ca4d52917be07ad6b9a4d1-0-96d407a91c8e72138e40c5ef9dc75d00" alt="NightOwl VPN" class="nav-logo-img">
+      <span class="nav-brand">NIGHT OWL VPN</span>
+    </a>
+    <div class="nav-links">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#packages" class="nav-link">Packages</a>
+      <a href="#supported" class="nav-link">Supported</a>
+      <a href="#order" class="nav-link">Order</a>
+      <a href="#order" class="nav-cta">Get Started</a>
+    </div>
+    <button class="mobile-toggle" onclick="toggleMobile()" aria-label="Menu">
+      <iconify-icon icon="mdi:menu"></iconify-icon>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" onclick="toggleMobile()" aria-label="Close">
+    <iconify-icon icon="mdi:close"></iconify-icon>
+  </button>
+  <div class="mobile-logo">
+    <img src="https://z-cdn-media.chatglm.cn/files/670cb0b4-4e18-4aaf-9cd9-109ac5f6e4f2.png?auth_key=1877815077-acf07dc7b8ca4d52917be07ad6b9a4d1-0-96d407a91c8e72138e40c5ef9dc75d00" alt="NightOwl VPN">
+  </div>
+  <a href="#about" class="nav-link" onclick="toggleMobile()">About</a>
+  <a href="#packages" class="nav-link" onclick="toggleMobile()">Packages</a>
+  <a href="#supported" class="nav-link" onclick="toggleMobile()">Supported</a>
+  <a href="#order" class="nav-link" onclick="toggleMobile()">Order Now</a>
+  <a href="#order" class="nav-cta" onclick="toggleMobile()">Get Started</a>
+</div>
+
+<!-- Main Content -->
+<main id="mainContent">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <iconify-icon icon="mdi:shield-lock-outline"></iconify-icon>
+        Secure &amp; Fast VPN Service
+      </div>
+      <div class="hero-logo-wrap">
+        <div class="hero-logo-ring"></div>
+        <div class="hero-logo-ring"></div>
+        <div class="hero-logo-ring"></div>
+        <img src="https://z-cdn-media.chatglm.cn/files/670cb0b4-4e18-4aaf-9cd9-109ac5f6e4f2.png?auth_key=1877815077-acf07dc7b8ca4d52917be07ad6b9a4d1-0-96d407a91c8e72138e40c5ef9dc75d00" alt="NightOwl VPN" class="hero-logo-img">
+      </div>
+      <h1><span class="gradient-text">Night Owl VPN</span><br>Service</h1>
+      <p class="hero-sub">Experience blazing-fast, secure, and affordable VPN data packages tailored for Sri Lanka. Browse freely, stream seamlessly, stay protected.</p>
+      <div class="hero-buttons">
+        <a href="#order" class="btn-primary">Order Now</a>
+        <a href="#packages" class="btn-secondary">View Packages</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">12+</div>
+          <div class="hero-stat-label">Supported Networks</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">24/7</div>
+          <div class="hero-stat-label">Support Available</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">500+</div>
+          <div class="hero-stat-label">Active Users</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="section-container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">Why Choose Us</div>
+        <h2 class="section-title">Premium VPN Experience</h2>
+        <p class="section-desc">We deliver reliable, high-speed VPN connectivity at prices that won't break the bank.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-card animate-on-scroll delay-1">
+          <div class="about-icon gold"><iconify-icon icon="mdi:lightning-bolt"></iconify-icon></div>
+          <h3>Blazing Fast Speed</h3>
+          <p>Optimized servers ensure minimal latency and maximum bandwidth for smooth streaming and browsing.</p>
+        </div>
+        <div class="about-card animate-on-scroll delay-2">
+          <div class="about-icon blue"><iconify-icon icon="mdi:shield-check"></iconify-icon></div>
+          <h3>Secure &amp; Private</h3>
+          <p>Military-grade encryption protects your data and identity. No logs, no tracking, complete anonymity.</p>
+        </div>
+        <div class="about-card animate-on-scroll delay-3">
+          <div class="about-icon cyan"><iconify-icon icon="mdi:currency-usd-off"></iconify-icon></div>
+          <h3>Affordable Pricing</h3>
+          <p>Packages starting from just LKR 200. Premium VPN service at budget-friendly rates for everyone.</p>
+        </div>
+        <div class="about-card animate-on-scroll delay-1">
+          <div class="about-icon blue"><iconify-icon icon="mdi:access-point-network"></iconify-icon></div>
+          <h3>12+ Networks Supported</h3>
+          <p>Compatible with Dialog, Airtel, Mobitel, SLT, and Hutch — covering all major Sri Lankan ISPs.</p>
+        </div>
+        <div class="about-card animate-on-scroll delay-2">
+          <div class="about-icon cyan"><iconify-icon icon="mdi:headset"></iconify-icon></div>
+          <h3>24/7 Support</h3>
+          <p>Reach us anytime via WhatsApp. Fast response times and dedicated assistance for all customers.</p>
+        </div>
+        <div class="about-card animate-on-scroll delay-3">
+          <div class="about-icon gold"><iconify-icon icon="mdi:rocket-launch"></iconify-icon></div>
+          <h3>Instant Activation</h3>
+          <p>Quick setup and activation process. Get connected within minutes of your order confirmation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="howitworks" style="background:var(--bg-primary)">
+    <div class="section-container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">How It Works</div>
+        <h2 class="section-title">How Does Our VPN Work?</h2>
+        <p class="section-desc">We create our VPN using high-quality VPS servers. In addition, all our configurations come with a <strong style="color:var(--cyan)">30-day warranty</strong>.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="howto-layout" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;margin-bottom:48px">
+        <div class="animate-on-scroll delay-1" style="position:relative">
+          <div style="background:var(--bg-card);border:1px solid var(--glass-border);border-radius:var(--radius);padding:40px 32px;text-align:center;position:relative;overflow:hidden">
+            <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--blue),var(--cyan))"></div>
+            <iconify-icon icon="mdi:server-network" style="font-size:64px;color:var(--blue-light);margin-bottom:16px;display:block;filter:drop-shadow(0 0 20px var(--blue-glow))"></iconify-icon>
+            <div style="font-family:'Orbitron',sans-serif;font-size:18px;font-weight:700;color:var(--gold);margin-bottom:8px">High-Quality VPS</div>
+            <p style="font-size:14px;color:var(--text-secondary);line-height:1.7">Enterprise-grade virtual private servers with 99.9% uptime guarantee ensure your connection is always fast and reliable.</p>
+            <div style="margin-top:20px;display:flex;justify-content:center;gap:24px">
+              <div style="text-align:center">
+                <div style="font-family:'Orbitron',sans-serif;font-size:20px;font-weight:800;color:var(--cyan)">99.9%</div>
+                <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px">Uptime</div>
+              </div>
+              <div style="width:1px;background:var(--glass-border)"></div>
+              <div style="text-align:center">
+                <div style="font-family:'Orbitron',sans-serif;font-size:20px;font-weight:800;color:var(--gold)">30</div>
+                <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px">Day Warranty</div>
+              </div>
+              <div style="width:1px;background:var(--glass-border)"></div>
+              <div style="text-align:center">
+                <div style="font-family:'Orbitron',sans-serif;font-size:20px;font-weight:800;color:var(--blue-light)">Fast</div>
+                <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px">Servers</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="animate-on-scroll delay-2">
+          <div class="howto-steps" style="display:flex;flex-direction:column;gap:20px">
+            <div style="display:flex;gap:16px;align-items:flex-start;background:var(--bg-card);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;transition:var(--transition)" onmouseover="this.style.borderColor='var(--border-gold)'" onmouseout="this.style.borderColor='var(--glass-border)'">
+              <div style="width:44px;height:44px;border-radius:12px;background:rgba(212,175,55,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Orbitron',sans-serif;font-size:16px;font-weight:800;color:var(--gold)">01</div>
+              <div>
+                <div style="font-size:15px;font-weight:700;margin-bottom:4px">Choose Your Network Package</div>
+                <div style="font-size:13px;color:var(--text-secondary);line-height:1.6">Activate a specific data package on your SIM or router from your telecom provider.</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:16px;align-items:flex-start;background:var(--bg-card);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;transition:var(--transition)" onmouseover="this.style.borderColor='var(--border-gold)'" onmouseout="this.style.borderColor='var(--glass-border)'">
+              <div style="width:44px;height:44px;border-radius:12px;background:rgba(0,136,255,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Orbitron',sans-serif;font-size:16px;font-weight:800;color:var(--blue-light)">02</div>
+              <div>
+                <div style="font-size:15px;font-weight:700;margin-bottom:4px">Purchase Our VPN Config</div>
+                <div style="font-size:13px;color:var(--text-secondary);line-height:1.6">Select a data plan from us and make the payment via bank transfer or EzCash.</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:16px;align-items:flex-start;background:var(--bg-card);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px;transition:var(--transition)" onmouseover="this.style.borderColor='var(--border-gold)'" onmouseout="this.style.borderColor='var(--glass-border)'">
+              <div style="width:44px;height:44px;border-radius:12px;background:rgba(0,255,204,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Orbitron',sans-serif;font-size:16px;font-weight:800;color:var(--cyan)">03</div>
+              <div>
+                <div style="font-size:15px;font-weight:700;margin-bottom:4px">Send Slip via WhatsApp</div>
+                <div style="font-size:13px;color:var(--text-secondary);line-height:1.6">Send your payment slip along with your name and selected package via WhatsApp. We'll activate your VPN.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Use Unlimited Data -->
+  <section id="howtouse">
+    <div class="section-container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">Unlimited Data</div>
+        <h2 class="section-title">How to Use Unlimited Data<br>for a Low Cost Using a VPN</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div style="max-width:900px;margin:0 auto">
+        <div class="animate-on-scroll delay-1" style="background:var(--bg-card);border:1px solid var(--glass-border);border-radius:var(--radius);padding:44px 40px;margin-bottom:28px;position:relative;overflow:hidden">
+          <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--orange),var(--gold))"></div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+            <div style="width:52px;height:52px;border-radius:14px;background:rgba(240,112,32,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <iconify-icon icon="mdi:lock-open-variant-outline" style="font-size:26px;color:var(--orange)"></iconify-icon>
+            </div>
+            <div>
+              <div style="font-size:18px;font-weight:700">The Concept</div>
+              <div style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px">Understanding restricted data packages</div>
+            </div>
+          </div>
+          <p style="font-size:15px;color:var(--text-secondary);line-height:1.9;margin-bottom:20px">
+            You need to activate a specific package for your SIM or router. While these packages provide a certain amount of data, it is usually restricted to specific apps like Facebook, WhatsApp, IMO, Viber, Zoom, Netflix, and YouTube.
+          </p>
+          <div style="background:linear-gradient(135deg,rgba(212,175,55,0.06),rgba(0,136,255,0.04));border:1px solid var(--border-gold);border-radius:var(--radius-sm);padding:20px 24px">
+            <div style="display:flex;align-items:flex-start;gap:12px">
+              <iconify-icon icon="mdi:lightbulb-on-outline" style="font-size:22px;color:var(--gold);flex-shrink:0;margin-top:2px"></iconify-icon>
+              <p style="font-size:15px;color:var(--text-primary);line-height:1.9;font-weight:500">
+                By purchasing one of our VPN configurations, you can <span style="color:var(--gold);font-weight:700">unlock this data</span>. This allows you to use your package for <span style="color:var(--cyan);font-weight:700">any online activity</span> — just like using a standard anytime data card.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px" class="animate-on-scroll delay-2">
+          <div style="background:var(--bg-card);border:1px solid var(--glass-border);border-radius:var(--radius);padding:32px 28px;position:relative;overflow:hidden">
+            <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--neon-pink),rgba(236,72,153,0.3))"></div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px">
+              <iconify-icon icon="mdi:cancel-circle-outline" style="font-size:24px;color:var(--neon-pink)"></iconify-icon>
+              <span style="font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;color:var(--neon-pink);text-transform:uppercase;letter-spacing:1px">Without VPN</span>
+            </div>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:12px">
+              <li style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-secondary)"><iconify-icon icon="mdi:close-circle" style="font-size:18px;color:var(--neon-pink);flex-shrink:0"></iconify-icon>Data restricted to specific apps only</li>
+              <li style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-secondary)"><iconify-icon icon="mdi:close-circle" style="font-size:18px;color:var(--neon-pink);flex-shrink:0"></iconify-icon>Cannot browse websites freely</li>
+              <li style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-secondary)"><iconify-icon icon="mdi:close-circle" style="font-size:18px;color:var(--neon-pink);flex-shrink:0"></iconify-icon>No access to other online services</li>
+              <li style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-secondary)"><iconify-icon icon="mdi:close-circle" style="font-size:18px;color:var(--neon-pink);flex-shrink:0"></iconify-icon>Data goes unused for general browsing</li>
+            </ul>
+          </div>
+          <div style="background:var(--bg-card);border:1px solid var(--border-gold);border-radius:var(--radius);padding:32px 28px;position:relative;overflow:hidden;box-shadow:var(--shadow-gold)">
+            <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--gold))"></div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px">
+              <iconify-icon icon="mdi:check-circle-outline" style="font-size:24px;color:var(--cyan)"></iconify-icon>
+              <span style="font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:1px">With Night Owl VPN</span>
+            </div>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:12px">
+              <li style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-primary)"><iconify-icon icon="mdi:check-circle" style="font-size:18px;color:var(--cyan);flex-shrink:0"></iconify-icon>Full unrestricted data access</li>
+              <li style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-primary)"><iconify-icon icon="mdi:check-circle" style="font-size:18px;color:var(--cyan);flex-shrink:0"></iconify-icon>Browse any website freely</li>
+              <li style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-primary)"><iconify-icon icon="mdi:check-circle" style="font-size:18px;color:var(--cyan);flex-shrink:0"></iconify-icon>Use all apps &amp; online services</li>
+              <li style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-primary)"><iconify-icon icon="mdi:check-circle" style="font-size:18px;color:var(--cyan);flex-shrink:0"></iconify-icon>Like a standard anytime data card</li>
+            </ul>
+          </div>
+        </div>
+        <div class="animate-on-scroll delay-3" style="margin-top:32px;text-align:center">
+          <div style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:16px">Typical Restricted Apps That Get Unlocked</div>
+          <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px">
+            <span style="background:rgba(66,103,178,0.12);border:1px solid rgba(66,103,178,0.25);color:#5b7bd5;padding:8px 16px;border-radius:50px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:6px"><iconify-icon icon="mdi:facebook" style="font-size:16px"></iconify-icon>Facebook</span>
+            <span style="background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.25);color:#25d366;padding:8px 16px;border-radius:50px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:6px"><iconify-icon icon="mdi:whatsapp" style="font-size:16px"></iconify-icon>WhatsApp</span>
+            <span style="background:rgba(0,200,83,0.1);border:1px solid rgba(0,200,83,0.25);color:#00c853;padding:8px 16px;border-radius:50px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:6px"><iconify-icon icon="mdi:phone" style="font-size:16px"></iconify-icon>IMO</span>
+            <span style="background:rgba(109,61,155,0.12);border:1px solid rgba(109,61,155,0.25);color:#9b6dd7;padding:8px 16px;border-radius:50px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:6px"><iconify-icon icon="mdi:phone-vibrate" style="font-size:16px"></iconify-icon>Viber</span>
+            <span style="background:rgba(0,120,212,0.1);border:1px solid rgba(0,120,212,0.25);color:#2196f3;padding:8px 16px;border-radius:50px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:6px"><iconify-icon icon="mdi:video" style="font-size:16px"></iconify-icon>Zoom</span>
+            <span style="background:rgba(229,9,20,0.1);border:1px solid rgba(229,9,20,0.25);color:#e50914;padding:8px 16px;border-radius:50px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:6px"><iconify-icon icon="mdi:movie-open" style="font-size:16px"></iconify-icon>Netflix</span>
+            <span style="background:rgba(255,0,0,0.1);border:1px solid rgba(255,0,0,0.2);color:#ff4444;padding:8px 16px;border-radius:50px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:6px"><iconify-icon icon="mdi:youtube" style="font-size:16px"></iconify-icon>YouTube</span>
+            <span style="background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.25);color:var(--gold);padding:8px 16px;border-radius:50px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:6px"><iconify-icon icon="mdi:plus" style="font-size:16px"></iconify-icon>Any App</span>
+          </div>
+        </div>
+        <div class="animate-on-scroll delay-4" style="text-align:center;margin-top:44px">
+          <a href="#order" class="btn-primary" style="display:inline-block">Unlock Your Data Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packages -->
+  <section id="packages" class="packages-section">
+    <div class="section-container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">Our Packages</div>
+        <h2 class="section-title">Choose Your Plan</h2>
+        <p class="section-desc">Select the perfect data package that fits your needs. All plans include full VPN access.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="packages-grid" id="packagesGrid">
+        <div class="package-card animate-on-scroll delay-1" data-package="100GB" data-price="200" onclick="selectPackage(this)">
+          <div class="package-data">100GB</div>
+          <div class="package-label">Data Package</div>
+          <div class="package-price">LKR 200 <span>/month</span></div>
+          <div class="package-period">Valid for 30 days</div>
+          <ul class="package-features">
+            <li><iconify-icon icon="mdi:check-circle"></iconify-icon>100GB VPN Data</li>
+            <li><iconify-icon icon="mdi:check-circle"></iconify-icon>All Networks Supported</li>
+            <li><iconify-icon icon="mdi:check-circle"></iconify-icon>Fast Servers</li>
+            <li><iconify-icon icon="mdi:check-circle"></iconify-icon>WhatsApp Support</li>
+          </ul>
+          <button class="package-select-btn">Select Plan</button>
+        </div>
+        <div class="package-card animate-on-scroll delay-2" data-package="200GB" data-price="300" onclick="selectPackage(this)">
+          <div class="package-data">200GB</div>
+          <div class="package-label">Data Package</div>
+          <div class="package-price">LKR 300 <span>/month</span></div>
+          <div class="package-period">Valid for 30 days</div>
+          <ul class="package-features">
+            <li><iconify-icon icon="mdi:check-circle"></iconify-icon>200GB VPN Data</li>
+            <li><iconify-icon icon="mdi:check-circle"></iconify-icon>All Networks Supported</li>
+            <li><iconify-icon icon="mdi:check-circle"></iconify-icon>Fast Servers</li>
+            <li><iconify-icon icon="mdi:check-circle"></iconify-icon>WhatsApp Support</li>
+          </ul>
+          <button class="package-select-btn">Select Plan</button>
+        </div>
+        <div class="package-card popular animate-on-scroll delay-3" data-package="300GB" data-price="400" onclick="selectPackage(this)">
+          <div class="package-data">300GB</div>
+          <div class="package-label">Data Package</div>
+          <div class="package-price">LKR 400 <span>/month</span></div>
+          <div class="package-period">Valid for 30 days</div>
+          <ul class="package-features">
+            <li><iconify-icon icon="mdi:check-circle"></iconify-icon>300GB VPN Data</li>
+            <li><iconify-icon icon="mdi:check-circle"></iconify-icon>All Networks Supported</li>
+            <li><iconify-icon icon="mdi:check-circle"></iconify-icon>Priority Servers</li>
+            <li><iconify-icon icon="mdi:check-circle"></iconify-icon>WhatsApp Support</li>
+          </ul>
+          <button class="package-select-btn">Select Plan</button>
+        </div>
+        <div class="package-card animate-on-scroll delay-4" data-package="Unlimited" data-price="500" onclick="selectPackage(this)">
+          <div class="package-data">∞</div>
+          <div class="package-label">Unlimited Package</div>
+          <div class="package-price">LKR 500 <span>/month</span></div>
+          <div class="package-period">Valid for 30 days</div>
+          <ul class="package-features">
+            <li><iconify-icon icon="mdi:check-circle"></iconify-icon>Unlimited VPN Data</li>
+            <li><iconify-icon icon="mdi:check-circle"></iconify-icon>All Networks Supported</li>
+            <li><iconify-icon icon="mdi:check-circle"></iconify-icon>Dedicated Servers</li>
+            <li><iconify-icon icon="mdi:check-circle"></iconify-icon>Priority Support</li>
+          </ul>
+          <button class="package-select-btn">Select Plan</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Supported Packages -->
+  <section id="supported">
+    <div class="section-container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">Compatibility</div>
+        <h2 class="section-title">Supported VPN Packages</h2>
+        <p class="section-desc">Our VPN service works seamlessly with all major Sri Lankan network data packages.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="supported-grid">
+        <div class="supported-item animate-on-scroll delay-1"><iconify-icon icon="mdi:router-wireless"></iconify-icon><span>Dialog Router Zoom 724</span></div>
+        <div class="supported-item animate-on-scroll delay-1"><iconify-icon icon="mdi:sim"></iconify-icon><span>Dialog 348</span></div>
+        <div class="supported-item animate-on-scroll delay-2"><iconify-icon icon="mdi:sim"></iconify-icon><span>Dialog 997</span></div>
+        <div class="supported-item animate-on-scroll delay-2"><iconify-icon icon="mdi:sim"></iconify-icon><span>Airtel 260</span></div>
+        <div class="supported-item animate-on-scroll delay-3"><iconify-icon icon="mdi:sim"></iconify-icon><span>Airtel 997</span></div>
+        <div class="supported-item animate-on-scroll delay-3"><iconify-icon icon="mdi:zoom-in"></iconify-icon><span>Airtel Zoom</span></div>
+        <div class="supported-item animate-on-scroll delay-4"><iconify-icon icon="mdi:zoom-in"></iconify-icon><span>Mobitel Zoom</span></div>
+        <div class="supported-item animate-on-scroll delay-4"><iconify-icon icon="mdi:router-wireless"></iconify-icon><span>SLT Zoom (Router)</span></div>
+        <div class="supported-item animate-on-scroll delay-5"><iconify-icon icon="mdi:fiber-manual-record"></iconify-icon><span>SLT Fiber Meet Max</span></div>
+        <div class="supported-item animate-on-scroll delay-5"><iconify-icon icon="mdi:fiber-manual-record"></iconify-icon><span>SLT Fiber Meet Lite</span></div>
+        <div class="supported-item animate-on-scroll delay-5"><iconify-icon icon="mdi:movie-open"></iconify-icon><span>SLT Fiber Netflix</span></div>
+        <div class="supported-item animate-on-scroll delay-5"><iconify-icon icon="mdi:zoom-in"></iconify-icon><span>Hutch Zoom</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Form -->
+  <section id="order" class="order-section">
+    <div class="section-container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">Place Order</div>
+        <h2 class="section-title">Get Your VPN Now</h2>
+        <p class="section-desc">Fill in your details, make the payment, then send everything via WhatsApp.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="form-wrapper animate-on-scroll">
+
+        <!-- WhatsApp instruction note -->
+        <div class="whatsapp-note">
+          <iconify-icon icon="mdi:whatsapp"></iconify-icon>
+          <p><strong>How to order:</strong> Fill in the form below and click "Send via WhatsApp". You'll be redirected to WhatsApp with your order details pre-filled. <strong>Attach your payment slip image</strong> to that message and send it. We'll confirm and activate your VPN.</p>
+        </div>
+
+        <form id="orderForm" onsubmit="return submitOrder(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Full Name *</label>
+              <input type="text" class="form-input" id="fullName" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address *</label>
+              <input type="email" class="form-input" id="email" placeholder="you@example.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">WhatsApp Number *</label>
+              <input type="tel" class="form-input" id="whatsapp" placeholder="07X XXX XXXX" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Selected Package *</label>
+              <select class="form-select" id="packageSelect" required>
+                <option value="">Choose a package</option>
+                <option value="100GB">100GB — LKR 200/=</option>
+                <option value="200GB">200GB — LKR 300/=</option>
+                <option value="300GB">300GB — LKR 400/=</option>
+                <option value="Unlimited">Unlimited — LKR 500/=</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Payment Method *</label>
+            <div class="payment-toggle">
+              <div class="payment-option" onclick="selectPayment('bank')" id="payBank">
+                <iconify-icon icon="mdi:bank-transfer"></iconify-icon>
+                <span>Bank Transfer</span>
+              </div>
+              <div class="payment-option" onclick="selectPayment('ezcash')" id="payEzcash">
+                <iconify-icon icon="mdi:cellphone"></iconify-icon>
+                <span>EzCash</span>
+              </div>
+            </div>
+            <div class="payment-details" id="bankDetails">
+              <div class="payment-detail-row"><span class="label">Bank Name</span><span class="value">Sampath Bank</span></div>
+              <div class="payment-detail-row"><span class="label">Account Number</span><span class="value">1118 5297 6973</span></div>
+              <div class="payment-detail-row"><span class="label">Account Name</span><span class="value">GJD Dilshan</span></div>
+              <div class="payment-detail-row"><span class="label">Branch</span><span class="value">Baddegama</span></div>
+            </div>
+            <div class="payment-details" id="ezcashDetails">
+              <div class="payment-detail-row"><span class="label">EzCash Number</span><span class="value">076 342 0752</span></div>
+              <div class="ezcash-note">
+                <iconify-icon icon="mdi:information"></iconify-icon>
+                <span>Important: Add LKR 20 extra to the total amount when paying via EzCash.</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group" id="priceDisplay" style="display:none">
+            <div style="background:rgba(212,175,55,0.08);border:1px solid var(--border-gold);border-radius:var(--radius-xs);padding:16px 20px;display:flex;justify-content:space-between;align-items:center">
+              <span style="font-size:14px;color:var(--text-secondary)">Total Amount:</span>
+              <span id="totalPrice" style="font-family:'Orbitron',sans-serif;font-size:22px;font-weight:800;color:var(--gold-light)"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Additional Note</label>
+            <textarea class="form-textarea" id="note" placeholder="Any special requests or messages..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit" id="submitBtn" style="background:linear-gradient(135deg,#25d366,#128C7E)">
+            <span id="submitText" style="display:inline-flex;align-items:center;gap:10px">
+              <iconify-icon icon="mdi:whatsapp" style="font-size:20px"></iconify-icon>
+              Send Order via WhatsApp
+            </span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Admin Panel -->
+<div class="admin-panel" id="adminPanel">
+  <div class="section-container">
+    <a href="#" class="admin-back" onclick="showMain()">
+      <iconify-icon icon="mdi:arrow-left"></iconify-icon> Back to Website
+    </a>
+    <div class="admin-header">
+      <h2>Order Management</h2>
+      <span class="admin-badge">Admin Panel</span>
+    </div>
+    <div class="admin-orders" id="adminOrders"></div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer" id="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <a href="#" class="footer-brand" onclick="showMain()">
+          <img src="https://z-cdn-media.chatglm.cn/files/670cb0b4-4e18-4aaf-9cd9-109ac5f6e4f2.png?auth_key=1877815077-acf07dc7b8ca4d52917be07ad6b9a4d1-0-96d407a91c8e72138e40c5ef9dc75d00" alt="NightOwl VPN" class="footer-logo-img">
+          <span class="footer-brand-name">NIGHT OWL VPN</span>
+        </a>
+        <p class="footer-desc">Premium VPN service provider in Sri Lanka. Fast, secure, and affordable data packages for all major networks.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#about">About Us</a>
+        <a href="#howitworks">How It Works</a>
+        <a href="#packages">Packages</a>
+        <a href="#supported">Supported Networks</a>
+        <a href="#order">Place Order</a>
+      </div>
+      <div class="footer-col">
+        <h4>Payment</h4>
+        <a href="#order">Bank Transfer</a>
+        <a href="#order">EzCash</a>
+        <a href="#order">Payment Guide</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="https://wa.me/+94724212983" target="_blank">
+          <iconify-icon icon="mdi:whatsapp" style="color:#25d366;vertical-align:middle;margin-right:4px"></iconify-icon>WhatsApp
+        </a>
+        <a href="tel:+94724212983">+94 72 421 2983</a>
+        <a href="mailto:nightowlvpn@gmail.com">nightowlvpn@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Night Owl VPN Service. All rights reserved.</p>
+      <p>Designed with <iconify-icon icon="mdi:heart" style="color:var(--gold);vertical-align:middle"></iconify-icon> in Sri Lanka</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/+94724212983" target="_blank" class="whatsapp-float" aria-label="Contact on WhatsApp">
+  <iconify-icon icon="mdi:whatsapp"></iconify-icon>
+</a>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <iconify-icon icon="mdi:check-decagram"></iconify-icon>
+  <div class="toast-text" id="toastText"></div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal">
+    <img src="https://z-cdn-media.chatglm.cn/files/670cb0b4-4e18-4aaf-9cd9-109ac5f6e4f2.png?auth_key=1877815077-acf07dc7b8ca4d52917be07ad6b9a4d1-0-96d407a91c8e72138e40c5ef9dc75d00" alt="NightOwl VPN" class="modal-logo">
+    <iconify-icon icon="mdi:whatsapp" style="font-size:56px;color:#25d366;margin-bottom:16px;display:block"></iconify-icon>
+    <h3>Redirecting to WhatsApp</h3>
+    <p>You'll be redirected to WhatsApp with your order details pre-filled. <strong style="color:#25d366">Don't forget to attach your payment slip image</strong> before sending the message.</p>
+    <a href="#" class="btn-primary" onclick="closeModal()" style="background:linear-gradient(135deg,#25d366,#128C7E)">Got It</a>
+  </div>
+</div>
+
+<script>
+let selectedPackage=null,selectedPayment=null,logoClickCount=0,logoClickTimer=null;
+
+(function(){const c=document.getElementById('particles');for(let i=0;i<25;i++){const p=document.createElement('div');p.className='particle';p.style.left=Math.random()*100+'%';p.style.bottom='-10px';p.style.animationDuration=(8+Math.random()*12)+'s';p.style.animationDelay=(Math.random()*10)+'s';const s=(1+Math.random()*2)+'px';p.style.width=s;p.style.height=s;c.appendChild(p)}})();
+
+window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50)});
+
+function toggleMobile(){document.getElementById('mobileMenu').classList.toggle('active');document.body.style.overflow=document.getElementById('mobileMenu').classList.contains('active')?'hidden':''}
+
+const observer=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.animate-on-scroll').forEach(el=>observer.observe(el));
+
+function selectPackage(card){document.querySelectorAll('.package-card').forEach(c=>c.classList.remove('selected'));card.classList.add('selected');selectedPackage={name:card.dataset.package,price:parseInt(card.dataset.price)};document.getElementById('packageSelect').value=selectedPackage.name;updatePrice();showToast('Package Selected',selectedPackage.name+' — LKR '+selectedPackage.price+'/=')}
+
+document.getElementById('packageSelect').addEventListener('change',function(){const v=this.value;if(v){document.querySelectorAll('.package-card').forEach(c=>c.classList.toggle('selected',c.dataset.package===v));const card=document.querySelector(`.package-card[data-package="${v}"]`);if(card)selectedPackage={name:v,price:parseInt(card.dataset.price)};updatePrice()}else{document.querySelectorAll('.package-card').forEach(c=>c.classList.remove('selected'));selectedPackage=null;updatePrice()}});
+
+function selectPayment(m){selectedPayment=m;document.getElementById('payBank').classList.toggle('active',m==='bank');document.getElementById('payEzcash').classList.toggle('active',m==='ezcash');document.getElementById('bankDetails').classList.toggle('active',m==='bank');document.getElementById('ezcashDetails').classList.toggle('active',m==='ezcash');updatePrice()}
+
+function updatePrice(){const d=document.getElementById('priceDisplay'),p=document.getElementById('totalPrice');if(selectedPackage){let t=selectedPackage.price,e='';if(selectedPayment==='ezcash'){t+=20;e=' (incl. LKR 20 EzCash fee)'}p.textContent='LKR '+t+'/='+e;d.style.display='block'}else{d.style.display='none'}}
+
+function submitOrder(e){
+  e.preventDefault();
+  const n=document.getElementById('fullName').value.trim();
+  const em=document.getElementById('email').value.trim();
+  const w=document.getElementById('whatsapp').value.trim();
+  const pk=document.getElementById('packageSelect').value;
+  const nt=document.getElementById('note').value.trim();
+
+  if(!n||!em||!w||!pk){showToast('Missing Fields','Please fill in all required fields.');return false}
+  if(!selectedPayment){showToast('Select Payment','Please choose a payment method.');return false}
+
+  let total=parseInt(document.querySelector(`.package-card[data-package="${pk}"]`).dataset.price);
+  if(selectedPayment==='ezcash')total+=20;
+
+  const payLabel=selectedPayment==='bank'?'Bank Transfer':'EzCash';
+  const payDetails=selectedPayment==='bank'
+    ?'Sampath Bank | Acc: 1118 5297 6973 | GJD Dilshan | Baddegama'
+    :'EzCash: 076 342 0752';
+
+  const msg=
+    `🦉 *Night Owl VPN — New Order*\n\n`+
+    `👤 *Name:* ${n}\n`+
+    `📧 *Email:* ${em}\n`+
+    `📱 *WhatsApp:* ${w}\n`+
+    `📦 *Package:* ${pk}\n`+
+    `💰 *Payment:* ${payLabel}\n`+
+    `💵 *Total:* LKR ${total}/=\n`+
+    `🏦 *Paid to:* ${payDetails}\n`+
+    (nt?`\n📝 *Note:* ${nt}\n`:'')+
+    `\n📎 *Please attach your payment slip image to this message.*\n\n`+
+    `Thank you! 🙏`;
+
+  const url='https://wa.me/+94724212983?text='+encodeURIComponent(msg);
+  window.open(url,'_blank');
+
+  document.getElementById('successModal').classList.add('active');
+
+  document.getElementById('orderForm').reset();
+  document.querySelectorAll('.package-card').forEach(c=>c.classList.remove('selected'));
+  document.getElementById('payBank').classList.remove('active');
+  document.getElementById('payEzcash').classList.remove('active');
+  document.getElementById('bankDetails').classList.remove('active');
+  document.getElementById('ezcashDetails').classList.remove('active');
+  document.getElementById('priceDisplay').style.display='none';
+  selectedPackage=null;
+  selectedPayment=null;
+
+  return false;
+}
+
+function closeModal(){document.getElementById('successModal').classList.remove('active')}
+
+function showToast(t,m){const toast=document.getElementById('toast');document.getElementById('toastText').innerHTML='<strong>'+t+'</strong>'+m;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),3500)}
+
+document.querySelectorAll('.nav-logo').forEach(l=>{l.addEventListener('click',e=>{e.preventDefault();logoClickCount++;clearTimeout(logoClickTimer);logoClickTimer=setTimeout(()=>logoClickCount=0,2000);if(logoClickCount>=5){logoClickCount=0;showAdmin()}})});
+if(new URLSearchParams(window.location.search).has('admin'))showAdmin();
+
+function showAdmin(){document.getElementById('mainContent').style.display='none';document.getElementById('footer').style.display='none';document.getElementById('adminPanel').classList.add('active');renderAdminOrders();window.scrollTo(0,0)}
+
+function showMain(){document.getElementById('mainContent').style.display='';document.getElementById('footer').style.display='';document.getElementById('adminPanel').classList.remove('active');const u=new URL(window.location);u.searchParams.delete('admin');window.history.replaceState({},'',u);window.scrollTo(0,0)}
+
+function renderAdminOrders(){const c=document.getElementById('adminOrders'),orders=JSON.parse(localStorage.getItem('nightowl_orders')||'[]');if(!orders.length){c.innerHTML='<div class="admin-empty"><iconify-icon icon="mdi:inbox-outline"></iconify-icon><p>No orders yet. Orders come via WhatsApp — use this panel to manually track them if needed.</p></div>';return}c.innerHTML=orders.map((o,i)=>`<div class="admin-order-card" id="order-${i}"><div class="admin-order-top"><span class="admin-order-id">${o.id}</span><span class="admin-order-status ${o.status}">${o.status}</span></div><div class="admin-order-grid"><div class="admin-order-field"><div class="aof-label">Name</div><div class="aof-value">${o.name}</div></div><div class="admin-order-field"><div class="aof-label">Email</div><div class="aof-value">${o.email}</div></div><div class="admin-order-field"><div class="aof-label">WhatsApp</div><div class="aof-value">${o.whatsapp}</div></div><div class="admin-order-field"><div class="aof-label">Package</div><div class="aof-value">${o.package}</div></div><div class="admin-order-field"><div class="aof-label">Payment</div><div class="aof-value">${o.payment}</div></div><div class="admin-order-field"><div class="aof-label">Total</div><div class="aof-value" style="color:var(--gold)">LKR ${o.total}/=</div></div><div class="admin-order-field"><div class="aof-label">Date</div><div class="aof-value">${new Date(o.date).toLocaleString('en-LK')}</div></div>${o.note?`<div class="admin-order-field"><div class="aof-label">Note</div><div class="aof-value">${o.note}</div></div>`:''}</div>${o.slip?`<div class="admin-slip-preview"><div class="aof-label" style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Payment Slip</div><img src="${o.slip}" alt="Payment Slip"><div style="font-size:11px;color:var(--text-muted);margin-top:6px">${o.slipName}</div></div>`:''}<div class="admin-order-actions"><button class="admin-btn complete" onclick="updateOrderStatus(${i},'completed')"><iconify-icon icon="mdi:check" style="vertical-align:middle;margin-right:4px"></iconify-icon>Mark Complete</button><a href="https://wa.me/+94724212983?text=Order%20${encodeURIComponent(o.id)}%20from%20${encodeURIComponent(o.name)}%20(${encodeURIComponent(o.package)})" target="_blank" class="admin-btn complete" style="text-decoration:none"><iconify-icon icon="mdi:whatsapp" style="vertical-align:middle;margin-right:4px"></iconify-icon>WhatsApp</a><button class="admin-btn delete" onclick="deleteOrder(${i})"><iconify-icon icon="mdi:delete" style="vertical-align:middle;margin-right:4px"></iconify-icon>Delete</button></div></div>`).join('')}
+
+function updateOrderStatus(i,s){let o=JSON.parse(localStorage.getItem('nightowl_orders')||'[]');if(o[i]){o[i].status=s;localStorage.setItem('nightowl_orders',JSON.stringify(o));renderAdminOrders();showToast('Order Updated','Order marked as '+s+'.')}}
+
+function deleteOrder(i){let o=JSON.parse(localStorage.getItem('nightowl_orders')||'[]');if(o[i]){if(confirm('Delete order '+o[i].id+'?')){o.splice(i,1);localStorage.setItem('nightowl_orders',JSON.stringify(o));renderAdminOrders();showToast('Order Deleted','The order has been removed.')}}}
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t&&this.getAttribute('href')!=='#'){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
+</script>
+</body>
+</html>
